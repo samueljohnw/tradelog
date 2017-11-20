@@ -1,6 +1,6 @@
 <div id="viewLogOverlay{{$log->id}}" class="hidden viewLogModal">
   <div  class="row">
-  <div class="col-xxs-6">
+  <div class="col-xs-6">
     <form method="POST" action="{{route('log.update',$log->id)}}"  enctype="multipart/form-data">
       {{csrf_field()}}
       {{method_field('PUT')}}
@@ -17,7 +17,7 @@
       Exit Price
       <input type="text" name="exitPrice" value="{{$log->exitPrice}}">
   </div>
-  <div class="col-xxs-6">
+  <div class="col-xs-6">
       <button type="submit">UPDATE</button>
     </form>
   </div>

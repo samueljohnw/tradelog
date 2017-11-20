@@ -3,8 +3,10 @@
 <a href="#" data-modal-target="#logTradeOverlay" data-modal-fit-viewport="false">Log Trade</a>
 
 @include('log.store')
+<div class="table-scrollable">
 
-<table>
+
+<table >
     <thead>
         <tr>
             <th scope="col">Symbol</th>
@@ -47,7 +49,7 @@
             <input type="hidden" name="log_id" value="{{$log->id}}">
             <button type="submit">Add Note</button>
           </form>
-          @foreach(\App\Note::where('log_id',$log->id)->get() as $note)
+          @foreach($log->notes()->get() as $note)
           <div class="alert alert-dismissable" role="alert">
             {{$note->text}}
           </div>
@@ -60,4 +62,5 @@
     </tr>
     @endforeach
 </table>
+</div>
 @stop

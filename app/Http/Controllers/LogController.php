@@ -13,7 +13,7 @@ class LogController extends Controller
   public function index()
   {
     $logs = Log::with('notes','images')->where('user_id',auth()->user()->id)->get();
-    $status = ['win','loss','nf'];
+    $status = ['win','loss','unfilled', 'open'];    
     return view('log.index',compact('logs','status'));
   }
 

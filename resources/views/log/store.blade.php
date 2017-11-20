@@ -33,11 +33,11 @@
       <b>Supply Proximal</b>
       <input type="text" name="supplyProximal" required>
       <br/>
-      <b>Demand Distal</b>
-      <input type="text" name="demandProximal" required>
-      <br/>
       <b>Demand Proximal</b>
       <input type="text" name="demandDistal" required>
+      <br/>
+      <b>Demand Distal</b>
+      <input type="text" name="demandProximal" required>
     </div>
     <div class="col-xxs-6">
       <b>Supply Curve</b>
