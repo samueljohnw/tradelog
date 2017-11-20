@@ -1,0 +1,7 @@
+table tr.loss{
+  background: rgba(223, 59, 87, 0.33);
+}
+
+table tr.win{
+  background: rgba(134, 186, 144, 0.34);
+}
