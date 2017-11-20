@@ -22,6 +22,7 @@ class LogController extends Controller
 
     $log = Log::find($id);
     $log->status = request()->input(['status']);
+    $log->exitPrice = request()->input(['exitPrice']);
     $log->save();
     return back();
   }

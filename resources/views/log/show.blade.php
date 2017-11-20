@@ -14,6 +14,8 @@
           @endif
         @endforeach
       </select>
+      Exit Price
+      <input type="text" name="exitPrice" value="{{$log->exitPrice}}">
   </div>
   <div class="col-xxs-6">
       <button type="submit">UPDATE</button>

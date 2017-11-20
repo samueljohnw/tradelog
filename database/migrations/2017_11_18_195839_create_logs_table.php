@@ -26,9 +26,10 @@ class CreateLogsTable extends Migration
             $table->string('supplyCurve');
             $table->string('demandCurve');
             $table->string('currentPrice');
+            $table->string('exitPrice')->nullable();
             $table->date('tradeDate');
             $table->time('tradeTime');
-            $table->text('notes')->nullable();            
+            $table->text('notes')->nullable();
             $table->string('status')->default('open');
             $table->timestamps();
         });
