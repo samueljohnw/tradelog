@@ -2,7 +2,7 @@
 @section('content')
 <a href="#" data-modal-target="#logTradeOverlay" data-modal-fit-viewport="false">Log Trade</a>
 
-@include('log.store')
+@include('trade.store')
 <div class="table-scrollable">
 
 
@@ -17,39 +17,39 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($logs as $log)
-    <tr class="{{$log->status}}">
+    @foreach($trades as $trade)
+    <tr class="{{$trade->status}}">
       <td>
-        {{($log->position == 'short'? '&darr;' : '&uarr;')}} <a href="#" data-modal-target="#viewLogOverlay{{$log->id}}" data-modal-fit-viewport="false">{{$log->symbol}}</a>
-        @include('log.show')
+        {{($trade->position == 'short'? '&darr;' : '&uarr;')}} <a href="#" data-modal-target="#viewLogOverlay{{$trade->id}}" data-modal-fit-viewport="false">{{$trade->symbol}}</a>
+        @include('trade.show')
       </td>
-      <td>{{$log->datetime()}} </td>
+      <td>{{$trade->datetime()}} </td>
       <td>
-        <b><button href="#" data-modal-target="#uploadImageOverlay{{$log->id}}" data-modal-fit-viewport="false">Upload</button></b>
-        <div id="uploadImageOverlay{{$log->id}}" class="hidden">
+        <b><button href="#" data-modal-target="#uploadImageOverlay{{$trade->id}}" data-modal-fit-viewport="false">Upload</button></b>
+        <div id="uploadImageOverlay{{$trade->id}}" class="hidden">
           <form method="POST" action="{{route('image.store')}}"  enctype="multipart/form-data">
             {{csrf_field()}}
             <input name="title" type="text">
             <input name="image" type="file">
-            <input name="log_id" type="hidden" value="{{$log->id}}">
+            <input name="trade_id" type="hidden" value="{{$trade->id}}">
             <button type="submit">Submit</button>
           </form>
         </div>
-        @foreach($log->images as $image)
-          <a class="grouped{{$log->id}}" href="{{Storage::url($image->path)}}" data-modal-title="{{$image->title}}" data-modal-group=".grouped{{$log->id}}">{{$image->title}}</a> |
+        @foreach($trade->images as $image)
+          <a class="grouped{{$trade->id}}" href="{{Storage::url($image->path)}}" data-modal-title="{{$image->title}}" data-modal-group=".grouped{{$trade->id}}">{{$image->title}}</a> |
       @endforeach
       </td>
       <td>
-        <a href="#" data-modal-target="#viewNotesOverlay{{$log->id}}" data-modal-fit-viewport="false">Notes</a>
-        <div id="viewNotesOverlay{{$log->id}}" class="hidden">
+        <a href="#" data-modal-target="#viewNotesOverlay{{$trade->id}}" data-modal-fit-viewport="false">Notes</a>
+        <div id="viewNotesOverlay{{$trade->id}}" class="hidden">
           <form method="POST" action="{{route('note.store')}}" >
             {{csrf_field()}}
             Notes:
             <textarea name="note" rows="2" cols="20"></textarea>
-            <input type="hidden" name="log_id" value="{{$log->id}}">
+            <input type="hidden" name="trade_id" value="{{$trade->id}}">
             <button type="submit">Add Note</button>
           </form>
-          @foreach($log->notes()->get() as $note)
+          @foreach($trade->notes()->get() as $note)
           <div class="alert alert-dismissable" role="alert">
             {{$note->text}}
           </div>
@@ -57,7 +57,7 @@
         </div>
       </td>
       <td>
-        @include('log.delete')
+        @include('trade.delete')
       </td>
     </tr>
     @endforeach

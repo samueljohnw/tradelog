@@ -33,8 +33,8 @@ class NoteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store()
-    {      
-        Note::create(['log_id'=>request()->input('log_id'),'text'=>request()->input('note')]);
+    {
+        Note::create(['trade_id'=>request()->input('trade_id'),'text'=>request()->input('note')]);
         return back();
     }
 

@@ -1,6 +1,7 @@
 <?php
+
 Route::group(['middleware' => ['auth']], function() {
-  Route::resource('log','LogController');
+  Route::resource('trade','TradeController');  
   Route::post('note','NoteController@store')->name('note.store');
   Route::post('image','ImageController@store')->name('image.store');
 });

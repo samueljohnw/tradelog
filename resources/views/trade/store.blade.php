@@ -1,7 +1,7 @@
 
 <div id="logTradeOverlay" class="hidden">
     <p>
-  <form method="POST" action="/log">
+  <form method="POST" action="{{route('trade.store')}}">
   {{ csrf_field()}}
   <div class="row">
     <div class="col-xxs-3">
@@ -18,11 +18,11 @@
     </div>
     <div class="col-xxs-3">
       <b>Trade Date</b>
-      <input type="date" name="tradeDate" required>
+      <input type="date" name="tradeDate" required value="{{date('Y-m-j')}}">
     </div>
     <div class="col-xxs-3">
       <b>Trade Time</b>
-      <input type="time" name="tradeTime" required>
+      <input type="time" name="tradeTime" required value="{{date('H:i')}}">
     </div>
   </div>
   <div class="row">

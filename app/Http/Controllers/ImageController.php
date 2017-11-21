@@ -36,7 +36,7 @@ class ImageController extends Controller
     public function store()
     {
       $path = request()->image->store('public');
-      Image::create(['log_id'=>request()->input('log_id'),'title'=>request()->input(['title']),'path'=>$path]);
+      Image::create(['trade_id'=>request()->input('trade_id'),'title'=>request()->input(['title']),'path'=>$path]);
       return back();
     }
 

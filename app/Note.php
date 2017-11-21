@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Note extends Model
 {
-    protected $fillable = ['log_id','text'];
+    protected $fillable = ['trade_id','text'];
 
-    public function log()
+    public function trade()
     {
-        return $this->belongsToMany('App\Log');
+        return $this->belongsToMany('App\Trade');
     }
 }

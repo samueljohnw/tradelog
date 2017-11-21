@@ -15,9 +15,9 @@ class CreateNotesTable extends Migration
     {
         Schema::create('notes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('log_id')->unsigned();
-            $table->foreign('log_id')->references('id')->on('logs')->onDelete('cascade');
-            $table->text('text');            
+            $table->integer('trade_id')->unsigned();
+            $table->foreign('trade_id')->references('id')->on('trades')->onDelete('cascade');
+            $table->text('text');
             $table->timestamps();
         });
     }

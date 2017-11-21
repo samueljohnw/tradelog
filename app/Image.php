@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    protected $fillable = ['log_id','path','title'];
+    protected $fillable = ['trade_id','path','title'];
 
-    public function log()
+    public function trade()
     {
-        return $this->belongsToMany('App\Log');
+        return $this->belongsToMany('App\Trade');
     }
 }
