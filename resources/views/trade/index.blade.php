@@ -9,7 +9,7 @@
             <th>Symbol</th>
             <th>Images</th>
             <th>Notes</th>
-            <th></th>
+            <th>Date</th>
         </tr>
     </thead>
     <tbody>
@@ -45,6 +45,7 @@
         @include('trade.note')
       </td>
       <td>
+        {{date('F j g:h A',strtotime($trade->created_at))}}
       </td>
     </tr>
     @endforeach
