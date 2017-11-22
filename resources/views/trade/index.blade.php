@@ -28,8 +28,8 @@
       </td>
       <td>
         @foreach($trade->images as $image)
-          <a href="#" class="imageModal" data-target="imageModal{{$trade->id}}" data-id="{{$trade->id}}">{{$image->title}}</a>
-          <div class="modal showImage imageModal{{$trade->id}}">
+          <a href="#" class="imageModal" data-target="imageModal{{$image->id}}" data-id="{{$image->id}}">{{$image->title}}</a>
+          <div class="modal showImage imageModal{{$image->id}}">
             <div class="modal-background"></div>
             <div class="modal-content">
               <p class="image is-4by3">
