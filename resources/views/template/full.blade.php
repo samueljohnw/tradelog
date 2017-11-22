@@ -6,18 +6,41 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Your Page Description." />
         <title>Trade Logger</title>
-
-        <link href="/css/responsive.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.css" />
         <link href="/css/app.css" rel="stylesheet" />
     </head>
     <body>
-      <div class="row">
-          <div class="col-xs-8 offset-xs-2">
+      <div class="columns is-centered">
+          <div class="column is-half">
             @yield('content')
           </div>
       </div>
-
-        <script src="/js/jquery-2.1.4.min.js"></script>
-        <script src="/js/responsive.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+      <script type="text/javascript">
+      $(".symbolModal").click(function() {
+        $(".symbolModal"+$(this).attr("data-symbolId")).addClass("is-active");
+      });
+      $("#logTradeModal").click(function() {
+        $(".logTradeModal").addClass("is-active");
+      });
+      $(".noteModal").click(function() {
+        $(".noteModal"+$(this).attr("data-id")).addClass("is-active");
+      });
+      $(".imageModal").click(function() {
+        $(".imageModal"+$(this).attr("data-id")).addClass("is-active");
+      });
+      $(".newImageModal").click(function() {
+        $(".newImageModal"+$(this).attr("data-id")).addClass("is-active");
+      });
+      $(".updateTradeModal").click(function() {
+        $(".updateTradeModal"+$(this).attr("data-id")).addClass("is-active");
+      });
+      $(".deleteTradeModal").click(function() {
+        $(".deleteTradeModal"+$(this).attr("data-id")).addClass("is-active");
+      });
+      $(".modal-close").click(function() {
+       $(".modal").removeClass("is-active");
+      });
+      </script>
     </body>
 </html>

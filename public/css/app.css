@@ -5,3 +5,12 @@ table tr.loss{
 table tr.win{
   background: rgba(134, 186, 144, 0.34);
 }
+
+.modal-content{
+  background: #fff;
+  padding: 35px;
+}
+
+.modal.showImage .modal-content{
+  width:50%;
+}
