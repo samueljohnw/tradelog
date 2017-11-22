@@ -1,7 +1,9 @@
 <?php
-
+Route::get('/',function(){
+  return redirect('/login');
+});
 Route::group(['middleware' => ['auth']], function() {
-  Route::resource('trade','TradeController');  
+  Route::resource('trade','TradeController');
   Route::post('note','NoteController@store')->name('note.store');
   Route::post('image','ImageController@store')->name('image.store');
 });

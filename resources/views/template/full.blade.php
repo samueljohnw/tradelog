@@ -10,10 +10,10 @@
         <link href="/css/app.css" rel="stylesheet" />
     </head>
     <body>
-      <div class="columns is-centered">
-          <div class="column is-half">
-            @yield('content')
-          </div>
+      <div class="columns is-mobile">
+        <div class="column is-8 is-offset-2">
+          @yield('content')
+        </div>
       </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
       <script type="text/javascript">

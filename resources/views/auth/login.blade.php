@@ -1,33 +1,40 @@
 @extends('template.full')
 @section('content')
-<div class="row">
-  <div class="col-xxs-4 offset-xxs-4">
+<div class="columns is-mobile">
+  <div class="column is-half is-offset-one-quarter">
+
     <form  method="POST" action="{{ route('login') }}">
     {{ csrf_field() }}
 
-    <label for="email">E-Mail Address</label>
+    <div class="field">
+      <label class="label">E-Mail Address</label>
+      <div class="control">
+        <input class="input" type="email" name="email" value="{{ old('email') }}" required autofocus>
+      </div>
+      @if ($errors->has('email'))
+        <p>{{ $errors->first('email') }}</p>
+      @endif
+    </div>
 
-    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
 
-    @if ($errors->has('email'))
-      <strong>{{ $errors->first('email') }}</strong>
-    @endif
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control">
+        <input class="input" type="password" name="password" required>
+      </div>
+      @if ($errors->has('password'))
+        <p>{{ $errors->first('password') }}</p>
+      @endif
+    </div>
 
-    <label for="password">Password</label>
+    <label class="checkbox">
+      Remember me
+      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+    </label>
+    <div class="field">
+      <button class="button is-primary" type="submit">Login</button>
+    </div>
 
-    <input id="password" type="password" name="password" required>
-    @if ($errors->has('password'))
-      <strong>{{ $errors->first('password') }}</strong>
-    @endif
-
-    Remember Me
-    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-
-    <button type="submit">Login</button>
-
-    <a href="{{ route('password.request') }}">
-      Forgot Your Password?
-    </a>
     </form>
   </div>
 </div>
