@@ -45,7 +45,7 @@
         @include('trade.note')
       </td>
       <td>
-        {{date('F j g:h A',strtotime($trade->created_at))}}
+        {{$trade->datetime()}}
       </td>
     </tr>
     @endforeach
