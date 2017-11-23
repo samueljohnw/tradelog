@@ -27,18 +27,20 @@
 
       </td>
       <td>
-        @foreach($trade->images as $image)
-          <a href="#" class="imageModal" data-target="imageModal{{$image->id}}" data-id="{{$image->id}}">{{$image->title}}</a>
-          <div class="modal showImage imageModal{{$image->id}}">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-              <p class="image is-4by3">
-                <img src="{{Storage::url($image->path)}}">
-              </p>
+        <div class="tags">
+          @foreach($trade->images as $image)
+            <a href="#" class="imageModal tag" data-target="imageModal{{$image->id}}" data-id="{{$image->id}}">{{$image->title}}</a>
+            <div class="modal showImage imageModal{{$image->id}}">
+              <div class="modal-background"></div>
+              <div class="modal-content">
+                <p class="image is-4by3">
+                  <img src="{{Storage::url($image->path)}}">
+                </p>
+              </div>
+              <button class="modal-close is-large" aria-label="close"></button>
             </div>
-            <button class="modal-close is-large" aria-label="close"></button>
-          </div>
-      @endforeach
+          @endforeach
+         </div>
       </td>
       <td>
         <a href="#" class="noteModal" data-id="{{$trade->id}}">Notes</a>
