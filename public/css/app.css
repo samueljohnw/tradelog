@@ -38,3 +38,16 @@ a.updateTradeModal, a.newImageModal{
   background-color: #ff3860!important;
   color:#fff!important;
 }
+
+tr.cancelled{
+background:#333;
+
+}
+
+tr.cancelled td a, tr.cancelled td{
+  color:#fff;
+}
+
+tr.cancelled td .tags a{
+  color:#333;
+}
