@@ -1,4 +1,4 @@
-<div class="modal updateTradeModal{{$trade->id}}">
+<div class="modal edit-modal updateTradeModal{{$trade->id}}">
   <div class="modal-background"></div>
   <div class="modal-content">
     <form method="POST" action="{{route('trade.update',$trade->id)}}"  enctype="multipart/form-data">
@@ -27,7 +27,7 @@
           <div class="field">
             <label class="label">Exit Price</label>
             <div class="control">
-              <input type="text" class="input" name="exitPrice" value="{{$trade->exitPrice}}">
+              <input type="text" class="input" name="exit" value="{{$trade->exit}}">
             </div>
           </div>
         </div>
@@ -40,9 +40,11 @@
           </div>
         </div>
       </div>
-
-      <button class="button is-primary" type="submit">UPDATE</button>
+      <footer class="modal-card-foot">
+        <button class="button is-primary" type="submit">UPDATE</button>
+        <span class="button button-close">Cancel</span>
+      </footer>
     </form>
-    <button class="modal-close is-large" aria-label="close"></button>
+
   </div>
 </div>

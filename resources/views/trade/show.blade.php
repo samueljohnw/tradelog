@@ -22,28 +22,16 @@
     <div class="column is-value">{{ucfirst($trade->position)}}</div>
   </div>
   <div class="columns">
-    <div class="column is-desc is-one-third">Supply Distal:</div>
-    <div class="column is-value">{{$trade->supplyDistal}}</div>
+    <div class="column is-desc is-one-third">Entry:</div>
+    <div class="column is-value">{{$trade->entry}}</div>
   </div>
   <div class="columns">
-    <div class="column is-desc is-one-third">Supply Proximal:</div>
-    <div class="column is-value">{{$trade->supplyProximal}}</div>
+    <div class="column is-desc is-one-third">Exit:</div>
+    <div class="column is-value">{{$trade->exit}}</div>
   </div>
   <div class="columns">
-    <div class="column is-desc is-one-third">Demand Proximal:</div>
-    <div class="column is-value">{{$trade->demandProximal}}</div>
-  </div>
-  <div class="columns">
-    <div class="column is-desc is-one-third">Demand Distal:</div>
-    <div class="column is-value">{{$trade->demandDistal}}</div>
-  </div>
-  <div class="columns">
-    <div class="column is-desc is-one-third">Supply Curve:</div>
-    <div class="column is-value">{{$trade->supplyCurve}}</div>
-  </div>
-  <div class="columns">
-    <div class="column is-desc is-one-third">Demand Curve:</div>
-    <div class="column is-value">{{$trade->demandCurve}}</div>
+    <div class="column is-desc is-one-third">Stop:</div>
+    <div class="column is-value">{{$trade->stop}}</div>
   </div>
   <div class="columns">
     <div class="column is-desc is-one-third">Current Price at Trade:</div>

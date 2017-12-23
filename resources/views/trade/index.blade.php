@@ -24,7 +24,6 @@
           </div>
           <button class="modal-close is-large" aria-label="close"></button>
         </div>
-
       </td>
       <td>
         <div class="tags">

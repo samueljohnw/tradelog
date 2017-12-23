@@ -1,58 +1,54 @@
 @extends('template.full')
 
 @section('content')
-<div class="row">
-  <div class="col-xxs-4 offset-xxs-4">
 
+<div class="columns is-mobile">
+  <div class="column is-half is-offset-one-quarter">
 
-
-<form class="form-horizontal" method="POST" action="{{ route('register') }}">
+<form method="POST" action="{{ route('register') }}">
 {{ csrf_field() }}
 
 
-<label for="name" class="col-md-4 control-label">Name</label>
+<div class="field">
+  <label class="label">Name</label>
+  <div class="control">
+    <input class="input" type="text" name="name" value="{{ old('name') }}" required autofocus>
+  </div>
+  @if ($errors->has('name'))
+  <strong>{{ $errors->first('name') }}</strong>
+  @endif
+</div>
+
+<div class="field">
+  <label class="label">E-Mail Address</label>
+  <div class="control">
+    <input class="input" type="email" name="email" value="{{ old('email') }}" required>
+  </div>
+  @if ($errors->has('email'))
+    <strong>{{ $errors->first('email') }}</strong>
+  @endif
+</div>
+
+<div class="field">
+  <label class="label">Password</label>
+  <div class="control">
+    <input class="input" type="password" name="password" required>
+  </div>
+</div>
+
+<div class="field">
+  <label class="label">Confirm Password</label>
+  <div class="control">
+    <input class="input" type="password" name="password_confirmation" required>
+  </div>
+  @if ($errors->has('password'))
+  <strong>{{ $errors->first('password') }}</strong>
+  @endif
+</div>
 
 
-<input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
-@if ($errors->has('name'))
-
-<strong>{{ $errors->first('name') }}</strong>
-
-@endif
-
-
-<label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-
-<input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-@if ($errors->has('email'))
-
-<strong>{{ $errors->first('email') }}</strong>
-
-@endif
-
-
-
-<label for="password" class="col-md-4 control-label">Password</label>
-
-
-<input id="password" type="password" class="form-control" name="password" required>
-
-@if ($errors->has('password'))
-<strong>{{ $errors->first('password') }}</strong>
-@endif
-
-
-
-<label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-
-<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
-
-<button type="submit" class="btn btn-primary">
+<button type="submit" class="button">
 Register
 </button>
 

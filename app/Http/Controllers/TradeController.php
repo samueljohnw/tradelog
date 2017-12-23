@@ -20,7 +20,7 @@ class TradeController extends Controller
   {
     $trade = Trade::find($id);
     $trade->status = request()->input(['status']);
-    $trade->exitPrice = request()->input(['exitPrice']);
+    $trade->exit = request()->input(['exit']);
     $trade->pl = request()->input(['pl']);
     $trade->save();
     return back();

@@ -11,7 +11,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" class="input" autofocus type="text" name="symbol" required>
+              <input class="input" class="input" autofocus type="text" name="symbol" >
             </div>
           </div>
         </div>
@@ -24,11 +24,18 @@
         <div class="field-body">
           <div class="field">
             <div class="control select">
-              <select class="" name="position" required>
-                <option value="">Select Position</option>
-                <option value="short">Short</option>
-                <option value="long">Long</option>
-              </select>
+              <div class="field">
+                <div class="control">
+                  <label class="radio">
+                    <input type="radio" name="position" value="short">
+                    Short
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="position" value="long">
+                    Long
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -41,7 +48,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" class="input" type="date" name="tradeDate" required value="{{date('Y-m-j')}}">
+              <input class="input" class="input" type="date" name="tradeDate"  value="{{date('Y-m-j')}}">
             </div>
           </div>
         </div>
@@ -54,7 +61,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" class="input" type="time" name="tradeTime" required value="{{date('H:i')}}">
+              <input class="input" class="input" type="time" name="tradeTime"  value="{{date('H:i')}}">
             </div>
           </div>
         </div>
@@ -62,12 +69,12 @@
 
       <div class="field is-horizontal">
         <div class="field-label is-small ">
-          <label class="label">Supply Distal</label>
+          <label class="label">Entry Price</label>
         </div>
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="text" name="supplyDistal" required>
+              <input class="input" type="text" name="entry" >
             </div>
           </div>
         </div>
@@ -75,12 +82,12 @@
 
       <div class="field is-horizontal">
         <div class="field-label is-small ">
-          <label class="label">Supply Proximal</label>
+          <label class="label">Exit Price</label>
         </div>
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="text" name="supplyProximal" required>
+              <input class="input" type="text" name="exit" >
             </div>
           </div>
         </div>
@@ -88,51 +95,12 @@
 
       <div class="field is-horizontal">
         <div class="field-label is-small ">
-          <label class="label">Demand Proximal</label>
+          <label class="label">Stop Loss</label>
         </div>
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="text" name="demandProximal" required>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="field is-horizontal">
-        <div class="field-label is-small ">
-          <label class="label">Demand Distal</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <input class="input" type="text" name="demandDistal" required>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="field is-horizontal">
-        <div class="field-label is-small ">
-          <label class="label">Supply Curve</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <input class="input" type="text" name="supplyCurve" required>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="field is-horizontal">
-        <div class="field-label is-small ">
-          <label class="label">Demand Curve</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <input class="input" type="text" name="demandCurve" required>
+              <input class="input" type="text" name="stop" >
             </div>
           </div>
         </div>
@@ -145,7 +113,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="text" name="currentPrice" required>
+              <input class="input" type="text" name="currentPrice" >
             </div>
           </div>
         </div>

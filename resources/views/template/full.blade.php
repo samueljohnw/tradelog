@@ -41,6 +41,9 @@
       $(".modal-close").click(function() {
        $(".modal").removeClass("is-active");
       });
+      $(".button-close").click(function() {
+       $(".edit-modal").removeClass("is-active");
+      });
       </script>
     </body>
 </html>
