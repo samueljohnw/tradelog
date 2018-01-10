@@ -10,7 +10,25 @@
         <link href="/css/app.css" rel="stylesheet" />
     </head>
     <body>
-      <div class="columns is-mobile">
+      @auth
+        <div class="columns">
+          <div class="column is-8 is-offset-2">
+            <div class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item" href="{{route('trade.index')}}">Trades</a>
+              </div>
+
+              <div class="navbar-end">
+                @if(auth()->user()->id == 1)
+                <a class="navbar-item" href="{{route('future.index')}}">Settings</a>
+                @endif
+                <a class="navbar-item" href="{{route('logout')}}">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      @endauth
+      <div class="columns">
         <div class="column is-8 is-offset-2">
           @yield('content')
         </div>
@@ -22,6 +40,9 @@
       });
       $("#logTradeModal").click(function() {
         $(".logTradeModal").addClass("is-active");
+      });
+      $("#addFuture").click(function() {
+        $(".addFuture").addClass("is-active");
       });
       $(".noteModal").click(function() {
         $(".noteModal"+$(this).attr("data-id")).addClass("is-active");

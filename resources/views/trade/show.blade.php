@@ -41,7 +41,8 @@
     <div class="column is-desc is-one-third">Traded At:</div>
     <div class="column is-value">{{$trade->datetime()}}</div>
   </div>
-
+    <a href="#" class="noteModal" data-id="{{$trade->id}}">Notes</a>
+    @include('trade.note')
     @include('trade.delete')
     @include('trade.update')
     @include('trade.image')

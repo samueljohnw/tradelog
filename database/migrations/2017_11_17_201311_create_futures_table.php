@@ -15,7 +15,7 @@ class CreateFuturesTable extends Migration
     {
         Schema::create('futures', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('symbol');
+            $table->string('symbol')->unique();
             $table->string('increment');
             $table->string('value');
             $table->string('format');
@@ -23,8 +23,7 @@ class CreateFuturesTable extends Migration
             $table->timestamps();
         });
     }
-// Maximum Account Risk (in dollars) / (Trade Risk (in ticks) x Tick Value) = Position Size
-
+    // Maximum Account Risk (in dollars) / (Trade Risk (in ticks) x Tick Value) = Position Size
 
     /**
      * Reverse the migrations.

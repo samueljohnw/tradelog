@@ -30,7 +30,12 @@ class TradeController extends Controller
   {
     $trade = request()->except(['_token']);
     $trade['user_id'] = auth()->user()->id;
-    Trade::create($trade);
+    $trade = Trade::create($trade);
+    if (request()->hasFile('image'))
+    {
+      $path = request()->image->store('public');
+      Image::create(['trade_id'=>$trade->id,'title'=>request()->input(['title']),'path'=>$path]);
+    }        
     return back();
   }
   public function destroy($id)

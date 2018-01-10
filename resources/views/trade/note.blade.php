@@ -1,4 +1,4 @@
-<div class="modal noteModal{{$trade->id}}" class="hidden">
+<div class="modal edit-modal noteModal{{$trade->id}}" class="hidden">
   <div class="modal-background"></div>
   <div class="modal-content">
 
@@ -11,7 +11,11 @@
       </div>
     </div>
     <input type="hidden" name="trade_id" value="{{$trade->id}}">
-    <button class="button is-primary" type="submit">Add Note</button>
+
+    <footer class="modal-card-foot">
+      <button class="button is-primary" type="submit">Submit</button>
+      <span class="button button-close">Cancel</span>
+    </footer>
   </form>
 <br/>
   @foreach($trade->notes()->get() as $note)

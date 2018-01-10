@@ -2,7 +2,7 @@
 <div  class="modal logTradeModal">
   <div class="modal-background"></div>
   <div class="modal-content">
-  <form method="POST" action="{{route('trade.store')}}" autocomplete="off">
+  <form method="POST" action="{{route('trade.store')}}" autocomplete="off" enctype="multipart/form-data">
       {{ csrf_field()}}
       <div class="field is-horizontal">
         <div class="field-label is-small">
@@ -18,12 +18,12 @@
       </div>
 
       <div class="field is-horizontal">
-        <div class="field-label is-small ">
+        <div class="field-label is-small">
           <label class="label">Type</label>
         </div>
         <div class="field-body">
           <div class="field">
-            <div class="control select">
+            <div class="control">
               <div class="field">
                 <div class="control">
                   <label class="radio">
@@ -118,7 +118,31 @@
           </div>
         </div>
       </div>
-
+      <div class="field">
+        <label class="label">Image Title</label>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input name="title"  class="input" type="text" placeholder="Image Title (Curve, Zone, etc)">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="file">
+          <label class="file-label">
+            <input class="file-input" name="image" type="file">
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fa fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Choose a file…
+              </span>
+            </span>
+          </label>
+        </div>
+      </div>
 
 
 
