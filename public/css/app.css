@@ -47,6 +47,6 @@ tr.cancelled td a, tr.cancelled td, tr.missed td a, tr.opposite td a, tr.zones t
   color:#fff;
 }
 
-tr.cancelled td .tags a{
+tr.cancelled td .tags a, tr.missed td .tags a, tr.opposite td .tags a, tr.zones td .tags a{
   color:#333;
 }
