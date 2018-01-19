@@ -12,7 +12,7 @@ class TradeController extends Controller
   public function index()
   {
     $trades = Trade::with('notes','images')->where('user_id',auth()->user()->id)->orderBy('created_at','desc')->get();
-    $status = ['win','loss','unfilled', 'open','cancelled'];
+    $status = ['win','loss','missed zone', 'open','cancelled','opposite direction'];
     return view('trade.index',compact('trades','status'));
   }
 
@@ -35,7 +35,7 @@ class TradeController extends Controller
     {
       $path = request()->image->store('public');
       Image::create(['trade_id'=>$trade->id,'title'=>request()->input(['title']),'path'=>$path]);
-    }        
+    }
     return back();
   }
   public function destroy($id)
