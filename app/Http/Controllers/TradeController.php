@@ -12,7 +12,7 @@ class TradeController extends Controller
   public function index()
   {
     $trades = Trade::with('notes','images')->where('user_id',auth()->user()->id)->orderBy('created_at','desc')->get();
-    $status = ['win','loss','missed zone', 'open','cancelled','opposite direction'];
+    $status = ['win','loss','missed zone', 'open','cancelled','opposite direction','zones changed'];
     return view('trade.index',compact('trades','status'));
   }
 
