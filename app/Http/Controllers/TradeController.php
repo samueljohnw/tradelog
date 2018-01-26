@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 use App\Trade;
 use App\Image;
 use App\Note;
+use Carbon\Carbon;
 
 class TradeController extends Controller
 {
   public function index()
   {
     $trades = Trade::with('notes','images')->where('user_id',auth()->user()->id)->orderBy('created_at','desc')->get();
+    $weekProgressData = Trade::where('user_id',auth()->user()->id)->where('tradeDate','>',Carbon::now()->subWeek(1)->toDateTimeString())->get();
+    $monthProgressData = Trade::where('user_id',auth()->user()->id)->where('tradeDate','>',Carbon::now()->subWeek(4)->toDateTimeString())->get();
     $status = ['win','loss','missed zone', 'open','cancelled','opposite direction','zones changed'];
-    return view('trade.index',compact('trades','status'));
+    return view('trade.index',compact('trades','status','weekProgressData','monthProgressData'));
   }
 
   public function update($id,Request $request)

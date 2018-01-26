@@ -1,4 +1,9 @@
-@extends('template.full')
+@extends('template.left-sidebar')
+@section('sidebar')
+<div class="">
+  @include('trade.progressBar')
+</div>
+@endsection
 @section('content')
 <a href="#" id="logTradeModal" class="button is-primary">Log New Trade</a>
 @include('trade.store')
@@ -27,7 +32,6 @@
       </td>
       <td>
         <small><b>{{$trade->entry}}</b> / <b>{{$trade->exit}}</b> / <b>{{$trade->stop}}</b></small>
-
       </td>
       <td>
         <div class="tags">
@@ -41,9 +45,6 @@
                 </p>
                 &nbsp;<b>EN - {{$trade->entry}}</b> / <b>Ex - {{$trade->exit}}</b> / <b>Stop - {{$trade->stop}}</b>
               </div>
-
-
-
               <button class="modal-close is-large" aria-label="close"></button>
             </div>
           @endforeach
