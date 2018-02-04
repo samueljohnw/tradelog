@@ -28,8 +28,8 @@
   </div>
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Last 30 Days<br/> Average Win / Loss</p>
-      <p class="title"><span style="color:green">${{round($monthProgressData->where('status','win')->avg('pl'))}}</span> / <span style="color:red">${{round($monthProgressData->where('status','loss')->avg('pl'))}}</span></p>
+      <p class="heading">Overall<br/> Average Win / Loss</p>
+      <p class="title"><span style="color:green">${{round($trades->where('status','win')->avg('pl'))}}</span> / <span style="color:red">${{round($trades->where('status','loss')->avg('pl'))}}</span></p>
     </div>
   </div>
 </nav>
