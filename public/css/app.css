@@ -38,7 +38,9 @@ a.updateTradeModal, a.newImageModal{
   background-color: #ff3860!important;
   color:#fff!important;
 }
-
+td.date,th.date{
+  text-align: right;
+}
 tr.cancelled, tr.missed, tr.opposite, tr.zones{
   background:#e2e2e2;
 }
