@@ -15,6 +15,7 @@
             <th>En / Ex / Stop</th>
             <th>Images</th>
             <th>Date</th>
+            <th>P/L</th>
         </tr>
     </thead>
     <tbody>
@@ -52,6 +53,11 @@
       </td>
       <td>
         {{$trade->datetime()}}
+      </td>
+      <td>
+        @if(!empty($trade->pl))
+        ${{$trade->pl}}
+        @endif
       </td>
     </tr>
     @endforeach
