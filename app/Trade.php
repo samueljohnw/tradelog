@@ -22,7 +22,7 @@ class Trade extends Model
 
   public function datetime()
   {
-    return date('F jS', strtotime($this->tradeDate)).' '.date('g:h A', strtotime($this->tradeTime));
+    return date('F jS', strtotime($this->tradeDate));
   }
 
   public function notes()

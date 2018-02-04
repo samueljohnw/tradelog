@@ -1,10 +1,32 @@
-@extends('template.left-sidebar')
-@section('sidebar')
-<div class="">
-  @include('trade.progressBar')
-</div>
-@endsection
+@extends('template.full')
 @section('content')
+<nav class="level is-mobile">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Last 7 Days Wins / Losses</p>
+      <p class="title"><span style="color:green">{{$weekProgressData->where('status','win')->count()}}</span> / <span style="color:red">{{$weekProgressData->where('status','loss')->count()}}</span></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Last 7 Days Profit / Loss</p>
+      <p class="title"><span style="color:green">${{number_format($weekProgressData->where('status','win')->sum('pl'))}}</span> / <span style="color:red">${{number_format($weekProgressData->where('status','loss')->sum('pl'))}}</span></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Last 30 Days Wins / Losses</p>
+      <p class="title"><span style="color:green">{{$monthProgressData->where('status','win')->count()}}</span> / <span style="color:red">{{$monthProgressData->where('status','loss')->count()}}</span></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Last 30 Days Profit / Loss</p>
+      <p class="title"><span style="color:green">${{number_format($monthProgressData->where('status','win')->sum('pl'))}} </span>/ <span style="color:red">${{number_format($monthProgressData->where('status','loss')->sum('pl'))}}</span></p>
+    </div>
+  </div>
+</nav>
+
 <a href="#" id="logTradeModal" class="button is-primary">Log New Trade</a>
 @include('trade.store')
 <div class="table-scrollable">
@@ -12,17 +34,16 @@
     <thead>
         <tr>
             <th>Symbol</th>
-            <th>En / Ex / Stop</th>
             <th>Images</th>
-            <th>Date</th>
             <th>P/L</th>
+            <th>Date</th>
         </tr>
     </thead>
     <tbody>
     @foreach($trades as $trade)
     <tr class="{{$trade->status}}">
       <td>
-        {{($trade->position == 'short'? '&darr;' : '&uarr;')}} <a href="#" class="symbolModal" data-symbolId="{{$trade->id}}" data-target="symbolModal{{$trade->id}}">{{strtoupper($trade->symbol)}}</a>
+        <b>{{($trade->position == 'short'? '&darr;' : '&uarr;')}}</b> <a href="#" class="symbolModal" data-symbolId="{{$trade->id}}" data-target="symbolModal{{$trade->id}}">{{strtoupper($trade->symbol)}}</a>
         <div class="modal symbolModal{{$trade->id}}">
           <div class="modal-background"></div>
           <div class="modal-content show">
@@ -30,9 +51,6 @@
           </div>
           <button class="modal-close is-large" aria-label="close"></button>
         </div>
-      </td>
-      <td>
-        <small><b>{{$trade->entry}}</b> / <b>{{$trade->exit}}</b> / <b>{{$trade->stop}}</b></small>
       </td>
       <td>
         <div class="tags">
@@ -52,12 +70,12 @@
          </div>
       </td>
       <td>
-        {{$trade->datetime()}}
-      </td>
-      <td>
         @if(!empty($trade->pl))
         ${{$trade->pl}}
         @endif
+      </td>
+      <td>
+        {{$trade->datetime()}}
       </td>
     </tr>
     @endforeach
