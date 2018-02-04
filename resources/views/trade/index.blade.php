@@ -14,6 +14,8 @@
       <p class="title"><span style="color:green">${{number_format($weekProgressData->where('status','win')->sum('pl'))}}</span> / <span style="color:red">${{number_format($weekProgressData->where('status','loss')->sum('pl'))}}</span></p>
     </div>
   </div>
+</nav>
+<nav class="level">
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Last 30 Days<br/> Total/ Wins / Losses</p>
@@ -26,6 +28,8 @@
       <p class="title"><span style="color:green">${{number_format($monthProgressData->where('status','win')->sum('pl'))}} </span>/ <span style="color:red">${{number_format($monthProgressData->where('status','loss')->sum('pl'))}}</span></p>
     </div>
   </div>
+</nav>
+<nav class="level">
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Overall<br/> Average Win / Loss</p>
