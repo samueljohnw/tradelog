@@ -40,7 +40,7 @@ a.updateTradeModal, a.newImageModal{
 }
 
 tr.cancelled, tr.missed, tr.opposite, tr.zones{
-  background:#333;
+  background:#e2e2e2;
 }
 
 tr.cancelled td a, tr.cancelled td, tr.missed td a, tr.opposite td a, tr.zones td a, tr.missed td , tr.opposite td , tr.zones td {
