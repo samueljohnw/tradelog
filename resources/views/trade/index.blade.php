@@ -22,14 +22,14 @@
   </div>
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Last 30 Days Profit / Loss</p>
+      <p class="heading">Last 30 Days<br/> Profit / Loss</p>
       <p class="title"><span style="color:green">${{number_format($monthProgressData->where('status','win')->sum('pl'))}} </span>/ <span style="color:red">${{number_format($monthProgressData->where('status','loss')->sum('pl'))}}</span></p>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
-      <p class="heading">Last 30 Days Average Win / Loss</p>
-      <p class="title"><span style="color:green">{{round($monthProgressData->where('status','win')->avg('pl'))}}</span> / <span style="color:red">{{round($monthProgressData->where('status','loss')->avg('pl'))}}</span></p>
+      <p class="heading">Last 30 Days<br/> Average Win / Loss</p>
+      <p class="title"><span style="color:green">${{round($monthProgressData->where('status','win')->avg('pl'))}}</span> / <span style="color:red">${{round($monthProgressData->where('status','loss')->avg('pl'))}}</span></p>
     </div>
   </div>
 </nav>
