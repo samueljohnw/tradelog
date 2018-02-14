@@ -24,6 +24,21 @@ class FutureController extends Controller
       return view('future.edit',compact('future'));
     }
 
+    public function update($future)
+    {
+      $future = Future::find($future);
+
+
+      $future->increment = request()->input('increment');
+      $future->value = request()->input('value');
+      $future->format = request()->input('format');;
+      $future->months = request()->input('months');;
+
+      $future->save();
+      return view('future.edit',compact('future'));
+    }
+
+
     public function win($future,$current,$exit)
     {
       $future = Future::where('symbol',$future)->first();

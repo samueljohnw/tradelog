@@ -9,40 +9,6 @@ Route::group(['middleware' => ['auth']], function() {
   Route::resource('future','FutureController');
 });
 
-Route::get('boom',function(){
-  $future = \App\Future::where('symbol','SI')->first();
-
-
-  $entry = "16.625";
-  $exit = "16.725";
-  $stop = "16.600";
-  $entry = str_replace('.', '', $entry);
-  $exit = str_replace('.', '', $exit);
-  $stop = str_replace('.', '', $stop);
-  if($entry > $exit)
-  {
-    $reward = $entry - $exit;
-  }else{
-    $reward = $exit - $entry;
-  }
-
-  $reward = $reward / $future->increment;
-  $reward = $reward * $future->value;
-
-  if($entry > $stop)
-  {
-    $risk = $entry - $stop;
-  }else{
-    $risk = $stop - $entry;
-  }
-
-  $risk = $risk / $future->increment;
-  $risk = $risk * $future->value;
-  dd($risk);
-  return $future->symbol;
-  return [request()->input('symbol')];
-});
-
 Route::post('riskreward',function(){
   $symbol = substr(request()->input('symbol'), 0, 2);
   $entry = request()->input('entry');

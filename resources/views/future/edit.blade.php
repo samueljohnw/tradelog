@@ -1,7 +1,9 @@
 @extends('template.full')
 @section('content')
 <h1 class="title">{{strtoupper($future->symbol)}}</h1>
-<form class="" action="" method="post">
+<form action="{{route('future.update',$future)}}" method="post">
+  {{csrf_field()}}
+  {{method_field('PUT')}}
   Increments: <input type="text" name="increment" value="{{$future->increment}}"><br/>
   Valule: <input type="text" name="value" value="{{$future->value}}"><br/>
   Format: <input type="text" name="format" value="{{$future->format}}"><br/>
