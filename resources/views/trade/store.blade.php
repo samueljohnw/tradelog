@@ -1,8 +1,16 @@
 
+
 <div  class="modal logTradeModal">
   <div class="modal-background"></div>
   <div class="modal-content">
-  <form method="POST" action="{{route('trade.store')}}" autocomplete="off" enctype="multipart/form-data">
+    <div class="columns">
+      <div class="column">
+        Risk -> <span id="risk"></span>
+      </div>
+      <div class="column">
+        Reward -> <span id="reward"></span>
+      </div>
+    </div>  <form method="POST" action="{{route('trade.store')}}" autocomplete="off" enctype="multipart/form-data">
       {{ csrf_field()}}
       <div class="field is-horizontal">
         <div class="field-label is-small">
@@ -11,7 +19,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" class="input" autofocus type="text" name="symbol" >
+              <input class="symbol input" autofocus type="text" name="symbol" >
             </div>
           </div>
         </div>
@@ -74,7 +82,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="text" name="entry" >
+              <input class="entry input" type="text" name="entry" >
             </div>
           </div>
         </div>
@@ -87,7 +95,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="text" name="exit" >
+              <input class="exit input" type="text" name="exit" >
             </div>
           </div>
         </div>
@@ -100,7 +108,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="text" name="stop" >
+              <input class="stop input" type="text" name="stop" >
             </div>
           </div>
         </div>

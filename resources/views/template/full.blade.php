@@ -65,6 +65,30 @@
       $(".button-close").click(function() {
        $(".edit-modal").removeClass("is-active");
       });
+
+      $(".stop.input").focusout(function()
+      {
+        var symbol = $('.symbol.input').val();
+        var entry = $('.entry.input').val();
+        var exit = $('.exit.input').val();
+        var stop = $('.stop.input').val();
+
+        $.post( "/riskreward", {
+          symbol: symbol,
+          entry: entry,
+          exit: exit,
+          stop: stop,
+        })
+        .done(function( data ) {
+          console.log(data);
+          $('#risk').text('$'+data['risk']);
+          $('#reward').text('$'+data['reward']);
+        });
+      });
+
+
+
+
       </script>
     </body>
 </html>
