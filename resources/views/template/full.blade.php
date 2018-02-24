@@ -16,6 +16,7 @@
             <div class="navbar-menu">
               <div class="navbar-start">
                 <a class="navbar-item" href="{{route('trade.index')}}">Trades</a>
+                <a class="navbar-item" href="{{route('scorecard')}}">Scorecard</a>
               </div>
 
               <div class="navbar-end">
@@ -86,6 +87,23 @@
         });
       });
 
+      $('.win').click(function(){
+        $('.tag.is-primary').removeClass('is-primary');
+        $(this).addClass('is-primary');
+        $('tr').hide();
+        $('tr.win').show();
+      });
+      $('.loss').click(function(){
+        $('.tag.is-primary').removeClass('is-primary');
+        $(this).addClass('is-primary');
+        $('tr').hide();
+        $('tr.loss').show();
+      });
+      $('.all').click(function(){
+        $('.tag.is-primary').removeClass('is-primary');
+        $(this).addClass('is-primary');
+        $('tr').show();
+      });
 
 
 
