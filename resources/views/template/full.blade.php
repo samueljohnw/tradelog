@@ -87,19 +87,19 @@
         });
       });
 
-      $('.win').click(function(){
+      $('.tag.win').click(function(){
         $('.tag.is-primary').removeClass('is-primary');
         $(this).addClass('is-primary');
         $('tr').hide();
         $('tr.win').show();
       });
-      $('.loss').click(function(){
+      $('.tag.loss').click(function(){
         $('.tag.is-primary').removeClass('is-primary');
         $(this).addClass('is-primary');
         $('tr').hide();
         $('tr.loss').show();
       });
-      $('.all').click(function(){
+      $('.tag.all').click(function(){
         $('.tag.is-primary').removeClass('is-primary');
         $(this).addClass('is-primary');
         $('tr').show();

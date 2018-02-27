@@ -19,9 +19,9 @@
     </thead>
     <tbody>
     @foreach($trades as $trade)
-    <tr class="{{$trade->status}}">
+    <tr id="{{$trade->id}}" class="{{$trade->status}}">
       <td>
-        <b>{{($trade->position == 'short'? '&darr;' : '&uarr;')}}</b> <a href="#" class="symbolModal" data-symbolId="{{$trade->id}}" data-target="symbolModal{{$trade->id}}">{{strtoupper($trade->symbol)}}</a>
+        <b>{{($trade->position == 'short'? '&darr;' : '&uarr;')}}</b> <a href="#{{$trade->id}}" class="symbolModal" data-symbolId="{{$trade->id}}" data-target="symbolModal{{$trade->id}}">{{strtoupper($trade->symbol)}}</a>
         <div class="modal symbolModal{{$trade->id}}">
           <div class="modal-background"></div>
           <div class="modal-content show">
@@ -33,7 +33,7 @@
       <td>
         <div class="tags">
           @foreach($trade->images as $image)
-            <a href="#" class="imageModal tag" data-target="imageModal{{$image->id}}" data-id="{{$image->id}}">{{$image->title}}</a>
+            <a href="#{{$trade->id}}" class="imageModal tag" data-target="imageModal{{$image->id}}" data-id="{{$image->id}}">{{$image->title}}</a>
             <div class="modal showImage imageModal{{$image->id}}">
               <div class="modal-background"></div>
               <div class="modal-content">
