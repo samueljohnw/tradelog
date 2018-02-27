@@ -21,7 +21,7 @@
 
               <div class="navbar-end">
                 @if(auth()->user()->id == 1)
-                <a class="navbar-item" href="{{route('future.index')}}">Settings</a>
+                <a class="navbar-item" href="{{route('future.index')}}">Futures</a>
                 @endif
                 <a class="navbar-item" href="{{route('logout')}}">Logout</a>
               </div>

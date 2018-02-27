@@ -126,6 +126,18 @@
           </div>
         </div>
       </div>
+      <div class="field is-horizontal">
+        <div class="field-label is-small ">
+          <label class="label">Test Trade</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="checkbox" type="checkbox" name="test" {{(request()->input('test') == true ? 'checked' : '')}} >
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="field">
         <label class="label">Image Title</label>
         <div class="field-body">

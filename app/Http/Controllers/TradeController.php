@@ -12,9 +12,19 @@ class TradeController extends Controller
 {
   public function index()
   {
-    $trades = Trade::with('notes','images')->where('user_id',auth()->user()->id)->orderBy('created_at','desc')->get();
-    $weekProgressData = Trade::where('user_id',auth()->user()->id)->where('tradeDate','>',Carbon::now()->subWeek(1)->toDateTimeString())->get();
-    $monthProgressData = Trade::where('user_id',auth()->user()->id)->where('tradeDate','>',Carbon::now()->subWeek(4)->toDateTimeString())->get();
+    if(request()->input('test') == true)
+    {
+      $trades = Trade::with('notes','images')
+                ->where('test',true)
+                ->where('user_id',auth()->user()->id)
+                  ->orderBy('created_at','desc')->get();
+    }else{
+      $trades = Trade::with('notes','images')
+                ->where('test',false)
+                ->where('user_id',auth()->user()->id)
+                ->orderBy('created_at','desc')->get();
+    }
+
     $status = ['win','loss','missed zone', 'open','cancelled','opposite direction','zones changed'];
     return view('trade.index',compact('trades','status','weekProgressData','monthProgressData'));
   }
@@ -31,8 +41,13 @@ class TradeController extends Controller
 
   public function store()
   {
-    $trade = request()->except(['_token']);
+
+    $trade = request()->except(['_token','test']);
     $trade['user_id'] = auth()->user()->id;
+    if(request()->input('test') == 'on')
+    {
+      $trade['test'] = 1;
+    }    
     $trade = Trade::create($trade);
     if (request()->hasFile('image'))
     {

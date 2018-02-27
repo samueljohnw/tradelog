@@ -17,7 +17,9 @@ class Trade extends Model
     'stop',
     'currentPrice',
     'tradeDate',
-    'tradeTime'
+    'tradeTime',
+    'test'
+
   ];
 
   public function datetime()
