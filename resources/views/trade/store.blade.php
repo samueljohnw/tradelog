@@ -3,6 +3,9 @@
 <div  class="modal logTradeModal">
   <div class="modal-background"></div>
   <div class="modal-content">
+    @if(request()->input('test') == true)
+      <span href="" class="tag is-danger">This Is A Test Trade</span><br/>
+    @endif
     <div class="columns">
       <div class="column">
         Risk -> <span id="risk"></span>
@@ -10,7 +13,9 @@
       <div class="column">
         Reward -> <span id="reward"></span>
       </div>
-    </div>  <form method="POST" action="{{route('trade.store')}}" autocomplete="off" enctype="multipart/form-data">
+    </div>
+
+    <form method="POST" action="{{route('trade.store')}}" autocomplete="off" enctype="multipart/form-data">
       {{ csrf_field()}}
       <div class="field is-horizontal">
         <div class="field-label is-small">
@@ -126,18 +131,9 @@
           </div>
         </div>
       </div>
-      <div class="field is-horizontal">
-        <div class="field-label is-small ">
-          <label class="label">Test Trade</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <input class="checkbox" type="checkbox" name="test" {{(request()->input('test') == true ? 'checked' : '')}} >
-            </div>
-          </div>
-        </div>
-      </div>
+
+      <input class="checkbox" type="hidden" name="test" value="{{(request()->input('test') == true ? 'on' : '')}}" >
+
       <div class="field">
         <label class="label">Image Title</label>
         <div class="field-body">

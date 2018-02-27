@@ -1,9 +1,17 @@
 @extends('template.full')
 @section('content')
-
-<p>
-<b>Sort:</b> <span href="" class="tag all is-primary">All</span> | <span href="" class="tag win is-light">Win</span> | <span href="" class="tag loss is-light">Loss</span>
-</p>
+<div class="columns">
+  <div class="column">
+    <p>
+    <b>Sort:</b> <span href="" class="tag all is-primary">All</span> | <span href="" class="tag win is-light">Win</span> | <span href="" class="tag loss is-light">Loss</span>
+    </p>
+  </div>
+  <div class="column" style="text-align:right">
+    <p>
+    <a href='/trade' class="tag {{(request()->input('test') == true ? '': 'is-info')}}">Live</a> | <a href='/trade?test=true' class="tag {{(request()->input('test') == true ? 'is-info': '')}}">Test</a>
+    </p>
+  </div>
+</div>
 <hr/>
 <a href="#" id="logTradeModal" class="button is-primary">Log New Trade</a>
 @include('trade.store')
