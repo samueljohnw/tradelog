@@ -6,15 +6,21 @@
     @if(request()->input('test') == true)
       <span href="" class="tag is-danger">This Is A Test Trade</span><br/>
     @endif
-    <div class="columns">
-      <div class="column">
-        Risk -> <span id="risk"></span>
+
+    <div class="field is-grouped is-grouped-multiline">
+      <div class="control">
+        <div class="tags has-addons">
+          <span class="tag is-danger">Risk</span>
+          <span class="tag is-passing" id="risk">0</span>
+        </div>
       </div>
-      <div class="column">
-        Reward -> <span id="reward"></span>
+      <div class="control">
+        <div class="tags has-addons">
+          <span class="tag is-primary">Reward</span>
+          <span class="tag is-passing" id="reward">0</span>
+        </div>
       </div>
     </div>
-
     <form method="POST" action="{{route('trade.store')}}" autocomplete="off" enctype="multipart/form-data">
       {{ csrf_field()}}
       <div class="field is-horizontal">
@@ -24,7 +30,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="symbol input" autofocus type="text" name="symbol" >
+              <input class="symbol input" autofocus type="text" name="symbol" required>
             </div>
           </div>
         </div>
@@ -40,11 +46,11 @@
               <div class="field">
                 <div class="control">
                   <label class="radio">
-                    <input type="radio" name="position" value="short">
+                    <input type="radio" name="position" value="short" required>
                     Short
                   </label>
                   <label class="radio">
-                    <input type="radio" name="position" value="long">
+                    <input type="radio" name="position" value="long" required>
                     Long
                   </label>
                 </div>
@@ -87,7 +93,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="entry input" type="text" name="entry" >
+              <input class="entry input" type="text" name="entry" required>
             </div>
           </div>
         </div>
@@ -100,7 +106,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="exit input" type="text" name="exit" >
+              <input class="exit input" type="text" name="exit" required>
             </div>
           </div>
         </div>
@@ -113,7 +119,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="stop input" type="text" name="stop" >
+              <input class="stop input" type="text" name="stop" required>
             </div>
           </div>
         </div>
@@ -126,7 +132,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" type="text" name="currentPrice" >
+              <input class="input" type="text" name="currentPrice" required>
             </div>
           </div>
         </div>
@@ -139,7 +145,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input name="title"  class="input" type="text" placeholder="Image Title (Curve, Zone, etc)">
+              <input name="title"  class="input" type="text" value="Zones" placeholder="Image Title (Curve, Zone, etc)">
             </div>
           </div>
         </div>
