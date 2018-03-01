@@ -4,7 +4,7 @@
   <div class="modal-background"></div>
   <div class="modal-content">
     @if(request()->input('test') == true)
-      <span href="" class="tag is-danger">This Is A Test Trade</span><br/>
+      <span href="" class="tag is-danger">This Is A Test Trade</span><br/><br/>
     @endif
 
     <div class="field is-grouped is-grouped-multiline">
@@ -67,7 +67,7 @@
         <div class="field-body">
           <div class="field">
             <div class="control">
-              <input class="input" class="input" type="date" name="tradeDate"  value="{{date('Y-m-j')}}">
+              <input class="input" class="input" type="date" name="tradeDate"  value="{{date('Y-m-d')}}">
             </div>
           </div>
         </div>
