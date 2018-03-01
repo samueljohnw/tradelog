@@ -15,8 +15,13 @@
           <div class="column is-8 is-offset-2">
             <div class="navbar-menu">
               <div class="navbar-start">
+                @if(request()->input('test') == 'true')
+                <a class="navbar-item" href="{{route('trade.index','test=true')}}">Trades</a>
+                <a class="navbar-item" href="{{route('scorecard','test=true')}}">Scorecard</a>
+                @else
                 <a class="navbar-item" href="{{route('trade.index')}}">Trades</a>
                 <a class="navbar-item" href="{{route('scorecard')}}">Scorecard</a>
+                @endif                              
               </div>
 
               <div class="navbar-end">
